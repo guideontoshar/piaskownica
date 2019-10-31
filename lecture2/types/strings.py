@@ -5,7 +5,7 @@ pc = 'półciężarówka'
 print(type(pc),pc)
 
 c = pc[3:]
-print(c)
+print(c) 
 print(pc[0])
 print(pc[-1])
 print(pc[0:3])
