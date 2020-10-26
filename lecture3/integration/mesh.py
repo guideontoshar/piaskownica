@@ -9,7 +9,7 @@
 Define 1D Mesh class
 """
 
-class Mesh:
+class Mesh(object):
   """Represents on dimensional mesh
   """
   def __init__(self):
