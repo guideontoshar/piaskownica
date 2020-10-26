@@ -9,7 +9,7 @@
 Define integrand function
 """
 
-class Integrand:
+class Integrand(object):
   """Represents integrand as 1D scalar function
   """
   def __init__(self, expression):
