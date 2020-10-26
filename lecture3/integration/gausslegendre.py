@@ -19,7 +19,7 @@ def antisymmetrize(seq, central=tuple()):
 def symmetrize(seq, central=tuple()):
     return list(itertools.chain(seq[::-1], central, seq))
 
-class GaussLegendre:
+class GaussLegendre(object):
   _nodes = { 1: [0.0],
              2: antisymmetrize([sqrt(1.0/3.0)]),
              3: antisymmetrize([sqrt(3.0/5.0)], [0.0]),
