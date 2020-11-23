@@ -106,14 +106,14 @@ class BattleView(object):
         self.ax.set_ylim(0.0, self.altitude_limit)
 
     def update_range(self):
-        self.max_range = self.speed()**2/gravity
-        self.max_time = self.speed()*math.sqrt(2)/gravity
+        self.max_range = self.speed**2/gravity
+        self.max_time = self.speed*math.sqrt(2)/gravity
         angle = np.radians(self.angle)
-        self.max_altitude = self.speed()*math.sin(angle)/gravity
+        self.max_altitude = self.speed*math.sin(angle)/gravity
         self.dt = self.max_time/self.resolution
 
     def draw_trajectory(self, start_time, end_time, speed, angle):
-        timesteps = np.linspace(start_time, end_time, (end_time-start_time)//self.dt)
+        timesteps = np.linspace(start_time, end_time, int((end_time-start_time)/self.dt))
         angle = np.radians(angle)
         x = timesteps * speed * math.cos(angle)
         y = timesteps * speed * math.sin(angle) - gravity * timesteps**2 / 2.0
