@@ -47,11 +47,11 @@ class GaussLegendre(object):
     return [jacobian*w for w in self.ref_weights]
 
 if __name__ == '__main__':
-  qr = GaussLegendre(4)
-  a = -3;
-  b = 5;
-  weights_sum = sum(qr.weights(a,b))
-  if abs(weights_sum - (b-a)) < 1.e-8:
-    print("Tesing weights: OK")
-  else:
-    print("Testing weights: FAILED %f" % weights_sum)
+    qr = GaussLegendre(4)
+    a = -3;
+    b = 5;
+    weights_sum = sum(qr.weights(a,b))
+    if abs(weights_sum - (b-a)) < 1.e-8:
+        print("Tesing weights: OK")
+    else:
+        print("Testing weights: FAILED %f" % weights_sum)

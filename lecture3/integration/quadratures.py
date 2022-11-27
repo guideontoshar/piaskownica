@@ -13,11 +13,11 @@ import newtoncotes
 import gausslegendre
 
 def known_quadratures():
-  return ["NewtonCotes", "GaussLegendre"]
+    return ["NewtonCotes", "GaussLegendre"]
 
 def make_quadrature(name, nnodes):
-  if name == "NewtonCotes":
-      return newtoncotes.NewtonCotes(nnodes)
-  elif name == "GaussLegendre":
-      return gausslegendre.GaussLegendre(nnodes)
-  raise RuntimeError("Invalid quadrature %s %d" %(name, nnodes))  
+    if name == "NewtonCotes":
+        return newtoncotes.NewtonCotes(nnodes)
+    elif name == "GaussLegendre":
+        return gausslegendre.GaussLegendre(nnodes)
+    raise RuntimeError("Invalid quadrature %s %d" %(name, nnodes))  

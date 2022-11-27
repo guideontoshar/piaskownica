@@ -11,10 +11,9 @@ Newton-Cotes numerical integration formulas
 """
 
 class NewtonCotes:
-     _weights = { 2: (0.5, 0.5),
-                  3 : tuple(x/6.0 for x in (1, 4, 1))
-                }
-  
+    _weights = { 2: (0.5, 0.5),
+                 3 : tuple(x/6.0 for x in (1, 4, 1)) }
+
     def __init__(self, nnodes):
         self.ref_weights = self._weights[nnodes]
         self.degree = len(self.ref_weights)-1
