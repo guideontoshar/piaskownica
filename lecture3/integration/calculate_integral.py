@@ -35,6 +35,7 @@ def main():
     args = parse_command_line()
     mesh = Mesh()
     mesh.load(args.meshfile)
+    print(mesh.nodes)
     integrand = Integrand(args.integrand)
     quadrature = quadratures.make_quadrature(args.quadrature, args.nnodes)
     integrator = MeshIntegrator()

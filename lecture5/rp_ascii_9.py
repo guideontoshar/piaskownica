@@ -2,7 +2,7 @@
 """
 Created on Mon Nov  9 00:14:53 2020
 
-@author: putanowr
+@author: Roman Putanowicz putanowr@gmail.com
 """
 
 import colorama
@@ -105,12 +105,11 @@ class StripesDecorator:
         return item
                 
     def _decorate(self, item, i, j):   
-         if i>=0 and i < item.W and j>=0 and j < item.H:     
+        if i>=0 and i < item.W and j>=0 and j < item.H:     
             if item.symbols[j,i] != '':
                 item.symbols[j,i] = self.char
                 item.fgcolors[j,i] = colors[self.color]
-    
-
+        
 class Rectangle(AsciiItem):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
@@ -134,14 +133,41 @@ class GiftBox(AsciiItem):
         self.fgcolors[:,1] = colorama.Fore.RED
         self.fgcolors[1,:] = colorama.Fore.RED
 
+class Star(AsciiItem):
+    def __init__(self):
+        super().__init__(width=3, height=3)
+        self._anchor = (1,1)
+        self.symbols = numpy.array([['/','|','\\'],['-','*','-'],
+                                    ['\\','|','/']], dtype='object_')
+
+        self.fgcolors.fill(colorama.Fore.YELLOW)
+
+class Rudolph(AsciiItem):
+    """Inspiration: https://www.shutterstock.com/search/ascii-deer-symbol-art"""
+    pattern ="""|_|_   _|_|          *
+    |_|              *
+  ~(0 0)~            *
+    (*)\________     *
+       \        )~~? *
+       ||++++++||    *
+       ||      ||    *
+"""        
+    def __init__(self):
+        width=21
+        super().__init__(width=width, height=7, char=' ')
+        self._anchor = (0,0)
+        lm=width+1 # the limit character 
+        for i in range(self.H):
+            for j in range(self.W):
+                self.symbols[self.H-1-i,j] = self.pattern[lm*i+j+i]
+        self.fgcolors[3,5] = colorama.Fore.RED
         
 class Tree(AsciiItem):
     def __init__(self, crownH=10, trunkH=5, trunkW=3, decorator=lambda x : x):
         crown = TriangleUp(height=crownH, fgcolor='green', char='#')
         super().__init__(width=crown.W, height=crown.H + trunkH, char='')
-        self.add(Rectangle(char='8', fgcolor='black', width=trunkW, height=trunkH), 
-                 x=crown.anchor[0]-trunkH//2+1, y=0)
-        self.add(decorator(crown), x=(crown.W-1)//2, y=trunkH)
+        self.add(Rectangle(char='8', fgcolor='black', width=trunkW, height=trunkH), crown.anchor[0]-trunkH//2+1, 0)
+        self.add(decorator(crown), (crown.W-1)//2, trunkH)
         self._anchor = crown.anchor
                 
     
@@ -164,17 +190,13 @@ class AsciiWorld(AsciiItem):
         print('My picture')
                 
 if __name__ == '__main__':
-    world = AsciiWorld(160, 60)
+    world = AsciiWorld(80, 60)
     world.add(GiftBox(), x=25, y=0)
-    world.add(GiftBox(), x=40, y=0)
-    chains = StripesDecorator(step=5)
-    world.add(Tree(crownH=10, decorator=chains), 20, 0)
-    chains.direction = (-1,1)
-    world.add(Tree(crownH=10, decorator=chains), 50, 0)
-    chains.direction = (0, 1)
-    world.add(Tree(crownH=10, decorator=chains), 80, 0)
-    chains.direction = (1, 0)
-    chains.step = 3
-    world.add(Tree(crownH=10, decorator=chains), 110, 0)
+    world.add(Star(), 30, 20)
+    world.add(Rudolph(),30, 10)
+    chainsRight = StripesDecorator(step=5)
+    chainsLeft = StripesDecorator(step=5, direction=(-1,1))
+    world.add(Tree(crownH=10, decorator=chainsRight), 20, 0)
+    world.add(Tree(crownH=10, decorator=chainsLeft), 60, 0)
     world.print()
     

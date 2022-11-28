@@ -105,7 +105,6 @@ class StripesDecorator:
         return item
                 
     def _decorate(self, item, i, j):   
-        print('size', item.size, i, j)
         if i>=0 and i < item.W and j>=0 and j < item.H:     
             if item.symbols[j,i] != '':
                 item.symbols[j,i] = self.char

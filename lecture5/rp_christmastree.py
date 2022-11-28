@@ -22,7 +22,7 @@ class ChristmasTree(object):
             repr += ' '*(spaceW-i)
             repr += '*'*(2*i+1)
             repr += '\n'
-        if self.black_foreground:
+        if self.black_background:
         	repr += f"{colorama.Fore.WHITE}"
         else:
         	repr += f"{colorama.Fore.BLACK}"
@@ -34,5 +34,5 @@ class ChristmasTree(object):
                 
 if __name__ == '__main__':
     ct = ChristmasTree(20, 7, 5)
-    ct.black_foreground = True
+    ct.black_background = True
     print(ct)

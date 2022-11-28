@@ -35,4 +35,4 @@ if __name__ == '__main__':
     ax.autoscale()
     ax.set_aspect('equal')
     fig.show()
-
+    plt.show()

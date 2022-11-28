@@ -69,7 +69,7 @@ class AsciiWorld:
 if __name__ == '__main__':
     world = AsciiWorld(80, 60)
     world.add(GiftBox(), 10, 0)
-    world.add(TriangleUp(20, 'white'), 60, 7)
+    world.add(TriangleUp(20, 'white'), 30, 7)
     world.add(TriangleUp(10, 'green'), 20, 3)
     world.print()
     

@@ -47,4 +47,4 @@ if __name__ == '__main__':
     world = AsciiWorld(80, 20)
     world.add(GiftBox(), 10, 0)
     world.print()
-    
+ 
