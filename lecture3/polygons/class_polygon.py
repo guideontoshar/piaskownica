@@ -5,7 +5,7 @@ import numpy
 import matplotlib.patches
 
 
-class Polygon(object):
+class Polygon:
     def __init__(self, nsides=3, radius=1.0, center=(0.0, 0.0), start_angle=0.0):
         self.nsides = nsides
         self.radius = radius

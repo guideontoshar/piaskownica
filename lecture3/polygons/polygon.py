@@ -18,6 +18,8 @@ def get_vertices(nsides=3, radius=1.0, center=(0.0, 0.0), start_angle=0.0):
 
 def plot_polygon(ax, x, y, facecolor='yellow'):
     """Plot polygon given by vertex coordinates
+
+    vertices = [(1,2), (2, 3), (3, 3)]
     """
     vertices=list(zip(x, y))
     poly = matplotlib.patches.Polygon(vertices, facecolor=facecolor, edgecolor='black')

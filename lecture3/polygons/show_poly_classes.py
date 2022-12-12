@@ -18,7 +18,9 @@ if __name__ == '__main__':
         poly.plot(ax, facecolor=color)
         print('Polygons sides : ', poly.nsides)
 
-    ax.autoscale()
+    # ax.autoscale()
+    ax.set_xlim(-10, 10)
+    ax.set_ylim(-20, 20)
     ax.set_aspect('equal')
     fig.show()
     plt.show()

@@ -197,6 +197,6 @@ if __name__ == '__main__':
     chainsRight = StripesDecorator(step=5)
     chainsLeft = StripesDecorator(step=5, direction=(-1,1))
     world.add(Tree(crownH=10, decorator=chainsRight), 20, 0)
-    world.add(Tree(crownH=10, decorator=chainsLeft), 60, 0)
+    world.add(Tree(crownH=15), 60, 0)
     world.print()
     

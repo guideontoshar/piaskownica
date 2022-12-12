@@ -11,7 +11,7 @@ def handleCommandLine():
                      action='store',
                      dest='xrange',
                      required=False,
-                     default='(0.0, 1.0)',
+                     default='(0.0, 6.0)',
                      help='xrange')
     parser.add_argument('function', nargs='?', default='sin(x)', action='store',
                          help='function f(x)')
@@ -22,7 +22,7 @@ def handleCommandLine():
 
 if __name__ == '__main__':
     cmdl = handleCommandLine()
-    N = 10
+    N = 100
     xb,xe=eval(cmdl.xrange)
     dx = (xe-xb)/(N-1)
     xc = [i*dx for i in range(N)]
