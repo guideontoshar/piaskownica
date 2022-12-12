@@ -1,0 +1,23 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.32014.148
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "SimulatorWithGUI", "SimulatorWithGUI\SimulatorWithGUI.pyproj", "{CEEB2BEE-E1D3-4687-A945-E8FB981F100C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CEEB2BEE-E1D3-4687-A945-E8FB981F100C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CEEB2BEE-E1D3-4687-A945-E8FB981F100C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {EDCC8C5C-7FA3-4D68-95EC-910B6D5367C9}
+	EndGlobalSection
+EndGlobal
